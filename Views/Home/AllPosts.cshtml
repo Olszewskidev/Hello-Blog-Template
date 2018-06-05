@@ -1,0 +1,19 @@
+﻿@using X.PagedList;
+@using X.PagedList.Mvc;
+@model IEnumerable<WebApplication1.Models.Posts>
+@{
+    ViewBag.Title = "All Posts";
+}
+<div style="margin-top:50px; margin-bottom:25px">
+    <div class="col-md-12" id="bgfor">
+        <h1 class="text-center" style="color:white; margin-top:5px">Wszystkie wpisy:</h1>
+    </div>
+</div>
+@foreach (var item in Model)
+{
+    @Html.Partial("_PostInterview",item)
+}
+<footer class="text-center">
+    @Html.PagedListPager((IPagedList)Model, page => Url.Action("AllPosts", new { page}),
+                           new PagedListRenderOptions() { DisplayPageCountAndCurrentLocation = true })
+</footer>

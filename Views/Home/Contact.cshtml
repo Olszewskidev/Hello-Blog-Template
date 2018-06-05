@@ -1,0 +1,93 @@
+﻿@model WebApplication1.Models.EmailData
+@{
+    ViewBag.Title = "Contact";
+}
+<head>
+    <link href="https://unpkg.com/ionicons@4.1.1/dist/css/ionicons.min.css" rel="stylesheet">
+</head>
+<div id="myC" class="carousel slide" style="margin-top:50px">
+    <ol class="carousel-indicators">
+        <li data-target="#myC" data-slide-to="0" class="active"></li>
+        <li data-target="#myC" data-slide-to="1"></li>
+        <li data-target="#myC" data-slide-to="2"></li>
+    </ol>
+    <div class="carousel-inner">
+        <div class="item active">
+            <img src="~/Images/Zdj1.JPG" alt="zdj1" class="img-responsive" />
+            <div class="carousel-caption text-center">
+                <p>Opis do zdjęcia pierwszego</p>
+            </div>
+        </div>
+        <div class="item">
+            <img src="~/Images/Zdj2.JPG" alt="zdj2" class="img-responsive" />
+            <div class="carousel-caption text-center">
+                <p>Opis do zdjęcia drugiego</p>
+            </div>
+        </div>
+        <div class="item">
+            <img src="~/Images/Zdj3.JPG" alt="Zdj3" class="img-responsive" />
+            <div class="carousel-caption">
+                <p>Opis do zdjęcia trzeciego</p>
+            </div>
+        </div>
+    </div>
+    <a class="carousel-control left" href="#myC" data-slide="prev"><span class="icon-prev"></span></a>
+    <a class="carousel-control right" href="#myC" data-slide="next"><span class="icon-next"></span></a>
+</div>
+<div class="socialmedia text-center" style="margin-top:50px">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-4">
+                <div class="button social" onclick="window.open('https://www.facebook.com/', '_blank');"><i class="icon ion-logo-facebook">Wpadnij na Fejsa</i></div>
+                <br />
+            </div>
+            <div class="col-sm-4">
+                <div class="button social" onclick="window.open('https://github.com/', '_blank');"><i class="icon ion-logo-google">.....Gita</i></div>
+                <br />
+            </div>
+            <div class="col-sm-4">
+                <div class="button social" onclick="window.open('https://www.linkedin.com', '_blank');"><i class="icon ion-logo-linkedin">..... i Linkedin'a</i></div>
+                <br />
+                <br />
+                <br />
+            </div>
+        </div>
+    </div>
+</div>
+<div class="WithBtn">
+    <div class="button" id="buttonToContact"><span style="color:#f0f0f0">Jakieś pytania?</span></div>
+</div>
+<br />
+<br />
+<br />
+<div id="contactform">
+    <div class="col-md-12 text-center">
+        <h2>Szybki kontakt</h2>
+        <br />
+        <div class="form-group">
+            <label for="exampleInputUsername">Twoje imię:</label>
+            <input type="text" class="form-control required" id="name" placeholder="Wprowadź swoje imię">
+        </div>
+        <div class="form-group">
+            <label for="exampleInputEmail">Twój adres e-mail:</label>
+            <input type="email" class="form-control" id="exampleInputEmail" placeholder="Wprowadź swój adres e-mail">
+        </div>
+        <div class="form-group">
+            <label for="telephone">Temat:</label>
+            <input type="text" class="form-control" id="subject" placeholder="Podaj temat wiadomości">
+        </div>
+        <div class="form-group">
+            <label for="description">Treść wiadomości:</label>
+            <textarea class="form-control" id="description" placeholder="Wprowadź treść wiadomości..." style="height:80px"></textarea>
+        </div>
+
+        <br />
+        <div class="WithBtn">
+            <div class="button" id="SendJSONButton"><span style="color:#f0f0f0">Wyślij!</span></div>
+        </div>
+    </div>
+    </div>     
+<script src="~/Scripts/jquery-3.3.1.min.js"></script>
+<script src="~/Scripts/MainJavaScript.js"></script>
+
+

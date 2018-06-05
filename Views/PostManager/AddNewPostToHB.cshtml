@@ -1,0 +1,71 @@
+﻿@model WebApplication1.Models.Posts
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>AddNewPostToHB</title>
+</head>
+<body style="text-align:center">
+    @using (Html.BeginForm("AddNewPostToHB", "PostManager", FormMethod.Post, new { enctype = "multipart/form-data" }))
+    {
+        @Html.AntiForgeryToken()
+        
+        <div class="form-horizontal">
+            <h4>Posts</h4>
+            <hr />
+            <div class="form-group">
+                @Html.LabelFor(model => model.Title, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.Title, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.Title, "", new { @class = "text-danger" })
+                </div>
+            </div>
+    <br />
+            <div class="form-group">
+                @Html.LabelFor(model => model.DateTime, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    <label for="CheckBox1">Zaznacz jeśli data ma być dzisiejsza:</label>
+                    @Html.CheckBox("Today", false, htmlAttributes: new { @id = "CheckBox1"})  
+                </div>
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.DateTime, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.DateTime, "", new { @class = "text-danger" })
+                </div>
+            </div>
+    <br />
+            <div class="form-group">
+                @Html.LabelFor(model => model.Body, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.Body, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.Body, "", new { @class = "text-danger" })
+                </div>
+            </div>
+    <br />
+            <div class="form-group">
+                @Html.LabelFor(model => model.PicImg, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    <input type="file" name="ImgPost" id="ImgPost" accept="image/jpeg, image/png" />
+                    <br />
+                </div>
+                <label for="CheckBox2">Zaznacz jeśli podajesz link do zdjęcia:</label>
+                @Html.CheckBox("LinkPic", false, htmlAttributes: new { @id = "CheckBox2" })
+                <br />
+                @Html.EditorFor(model => model.PicImg, new { htmlAttributes = new { @class = "form-control" } })
+            </div>
+    <br />
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-10">
+                    <input type="submit" value="Save" class="btn btn-default" />
+                </div>
+            </div>
+        </div>
+    }
+    
+</body>
+</html>

@@ -1,0 +1,13 @@
+﻿@model WebApplication1.Models.Posts
+<div class="col-md-12">
+    <div class="postimg">
+        <img class="img-thumbnail" src="@Url.Content(Model.PicImg)" />
+    </div>
+    <a href="@Url.Action("Post","Home",new { id = @Model.ID})"><h3>@Model.Title</h3></a>
+    <br />
+    <p class="articletexttoshow">
+        @Model.Body
+        <a href="@Url.Action("Post","Home",new { id = @Model.ID})" class="more-link">Czytaj dalej »</a>
+    </p>
+</div>
+<br />

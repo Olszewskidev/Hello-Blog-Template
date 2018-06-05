@@ -1,0 +1,15 @@
+﻿@model IQueryable<WebApplication1.Models.Posts>
+<script async defer src="//www.instagram.com/embed.js"></script>
+@foreach (var items in Model)
+{
+    <div style="margin-top:25px; margin-bottom:25px">
+        <div class="col-md-12" id="bgfor">
+            <h1 class="text-center" style="color:white; margin-top:5px">@items.Title</h1>
+        </div>
+    </div>
+    <div class="col-md-12">
+        <div class="articletexttoshow">
+           @Html.Raw(@items.Body)
+        </div>
+    </div>
+}

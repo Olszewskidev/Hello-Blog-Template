@@ -1,0 +1,60 @@
+﻿@model IQueryable<WebApplication1.Models.Posts>
+@{
+    ViewBag.Title = "Home Page";
+}
+<head>
+    <link href="~/Content/StyleSheet1.css" rel="stylesheet" />
+</head>
+<div class="BackGround">
+    <div style="margin-top:50px" class="header">
+        <div class="head-wrap">
+            <div class="text-editor-wrap">
+                <div class="title-bar"><span class="title">HelloBlog.exe</span></div>
+                <div class="text-body">
+                    <div>
+                        <img class="img-circle center-block" src="~/Images/img_20180107_142720.115.jpg" alt="Kamil Olszewski- profilowe zdjęcie" style="margin:auto; display:block" />
+                    </div>
+                    <br />
+                    $ <span class="typed"></span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="WithBtn">
+    <div class="button" id="buttonToFresh3"><span style="color:#f0f0f0">Zobacz najnowsze wpisy</span></div>
+</div>
+<br />
+<br />
+<br />
+<br />
+<div id="fresh3" style="padding-top:0px"></div>
+    <div id="Wpisy"style="margin-top:65px;">
+        <div class="col-md-12" id="bgfor">
+            <h1 class="text-center" style="color:white; margin-top:5px">Najnowsze wpisy</h1>
+        </div>
+        <br />
+        <div id="zbiorwpisow">
+            <div class="row">
+                @foreach (var item in Model)
+                {
+                    @Html.Partial("_PostInterview", item)
+                }
+                </div>
+        </div>
+        <div class="WithBtn">
+            <div class="button" onclick="location.href='@Url.Action("AllPosts","Home")'"><span style="color:#f0f0f0">Zobacz wszystkie wpisy</span></div>
+        </div>
+    </div>
+    <script src="~/Scripts/typed.js"></script>
+    <script src="~/Scripts/jquery-3.3.1.min.js"></script>
+    <script src="~/Scripts/MainJavaScript.js"></script>
+<script type="text/javascript">
+    //Typed.js effect
+    var typed = new Typed('.typed', {
+        strings: ["Hello Blog by Kamil Olszewski"],
+        typeSpeed: 60,
+        backSpeed: 50,
+        loop: true
+    });
+</script>
